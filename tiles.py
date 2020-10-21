@@ -1,8 +1,10 @@
 import random
 import pygame
 
+size = [40, 20]
+
 pygame.init()
-screen = pygame.display.set_mode((500, 500))
+screen = pygame.display.set_mode(((size[0]*50), (size[1]*50)))
 
 pygame.display.set_caption("Random Room")
 
@@ -22,9 +24,6 @@ tile13Img = pygame.image.load('Tile13.png')
 tile14Img = pygame.image.load('Tile14.png')
 tile15Img = pygame.image.load('Tile15.png')
 tile16Img = pygame.image.load('Tile16.png')
-
-def draw_tile1(x, y):
-    screen.blit(tile1Img, (x, y))
 
 
 class TilePreset:
@@ -82,7 +81,7 @@ class Room:
         self.y_max = y_max
         self.seed = seed
         self.d = {}
-        self.generate()
+        # self.generate()
 
     def generate(self):
         for width in range(self.x_max):
@@ -114,7 +113,7 @@ class Room:
             print()
 
 
-myRoom = Room(10, 10, 0)
+myRoom = Room(size[0], size[1], 0)
 
 
 running = True
